@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Smoke from '../public/dist/components/Smoke';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Smoke from '../public/dist/components/Smoke'
 import PluginManager from "../public/dist/Helpers/PluginManager";
 import DOMValidator from "../public/dist/Helpers/DomValidator";
 

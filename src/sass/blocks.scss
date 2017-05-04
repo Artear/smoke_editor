@@ -111,6 +111,10 @@
   background-size: contain;
 }
 
+.smoke-corrupted-embed{
+  background-image: url("../placeholders/corrupted-embed.svg");
+  background-size: contain;
+}
 .smoke-giphy {
   background-image: url("../placeholders/giphy.svg");
 }
@@ -122,8 +126,6 @@
 .smoke-playbuzz {
   background-image: url("../placeholders/playbuzz.png");
 }
-
-
 
 .related-content-block,
 .kaltura-block {

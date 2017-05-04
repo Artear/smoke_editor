@@ -14,14 +14,15 @@ const {DefaultDraftBlockRenderMap} = DraftJS;
 export default class Smoke extends React.Component {
     constructor(props) {
         super(props);
+        let editorState = null;
 
         this.decorator = this.getDecorator();
 
         if (props.defaultValue.length > 0) {
             const contentState = JSON.parse(props.defaultValue);
-            var editorState = editorStateFromRaw(contentState, this.decorator);
+            editorState = editorStateFromRaw(contentState);
         } else {
-            var editorState = editorStateFromRaw(null, this.decorator);
+            editorState = editorStateFromRaw(null);
         }
 
         this.state = {
