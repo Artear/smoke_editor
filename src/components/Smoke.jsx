@@ -1,13 +1,22 @@
 import React from 'react';
-import {EditorState, ContentState} from 'draft-js';
-import {editorStateFromRaw, editorStateToJSON} from "megadraft";
-import  SmokeEditor from "./SmokeEditor"
+import {
+    DraftJS,
+    MegadraftEditor,
+    editorStateFromRaw,
+    editorStateToJSON,
+    createTypeStrategy
+} from "megadraft";
+import Immutable from "immutable";
 
+const {Map} = Immutable;
+const {DefaultDraftBlockRenderMap} = DraftJS;
 
 export default class Smoke extends React.Component {
     constructor(props) {
         super(props);
         let editorState = null;
+
+        this.decorator = this.getDecorator();
 
         if (props.defaultValue.length > 0) {
             const contentState = JSON.parse(props.defaultValue);
@@ -22,6 +31,33 @@ export default class Smoke extends React.Component {
             name: this.props.name,
             id: this.props.id,
         };
+
+        this.entityInputs = this.getEntityInputs();
+
+    }
+    
+    getEntityInputs = () => {
+        const entityInputs = {};
+        this.props.actions.forEach(function (action) {
+            if(action.entity && action.entityInput) {
+                entityInputs[action.entity] = action.entityInput;
+            }
+        });
+
+        return entityInputs;
+    }
+
+    getDecorator = () => {
+        let decorators = [];
+        this.props.actions.forEach(function (action) {
+            if(action.entity && action.component) {
+                decorators.push({
+                    strategy: createTypeStrategy(action.entity),
+                    component: action.component,
+                })
+            }
+        });
+        return new DraftJS.CompositeDecorator(decorators);
     }
 
     onChange = (editorState) => {
@@ -32,16 +68,33 @@ export default class Smoke extends React.Component {
         });
     };
 
+    blockRenderMap = () => {
+
+        const customBlockRendering = Map({
+            'paragraph': {
+                element: 'p',
+            },
+            'unstyled': {
+                element: 'p',
+            }
+        });
+        return DefaultDraftBlockRenderMap.merge(customBlockRendering);
+    }
+
+
     render() {
 
         const inputType = (this.props.debug === true) ? 'text' : 'hidden';
         return (
             <div>
-                <SmokeEditor
+                <MegadraftEditor
                     editorState={this.state.editorState}
                     actions={this.props.actions}
                     plugins={this.props.plugins}
-                    onChange={this.onChange}/>
+                    onChange={this.onChange}
+                    blockRenderMap={this.blockRenderMap()}
+                    entityInputs={this.entityInputs}
+                    />
                 <input type={inputType} readOnly name={this.state.name} id={this.state.id} value={this.state.smokeJson}/>
             </div>
         )
