@@ -1,8 +1,9 @@
 @import "blocks";
 @import "modal";
+@import "plugin-relateduserarticle";
 @import "../../node_modules/megadraft/dist/css/megadraft";
 
 
 .megadraft-editor .sidemenu__items--open {
-  max-height: 200px;
+  max-height: 240px;
 }
