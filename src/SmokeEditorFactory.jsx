@@ -1,46 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Smoke from '../public/dist/components/Smoke'
-import PluginManager from "../public/dist/Helpers/PluginManager";
-import DOMValidator from "../public/dist/Helpers/DomValidator";
+import React from 'react';
+import Smoke from './components/Smoke';
+import PluginManager from './Helpers/PluginManager';
 
 export default class SmokeEditorFactory {
-    static make(element, config) {
 
-        try {
-            const textarea = DOMValidator.getFirstChildOrThrow(element, 'textarea');
-            const defaultValue = textarea.value.trim();
-            const name = DOMValidator.getAttributeOrThrow(textarea, 'name');
-            const id = DOMValidator.getAttributeOrThrow(textarea, 'id');
+	static make({config, attributes}) {
+		let plugins = [];
+		config.plugins.forEach(function (pluginName) {
+			plugins.push(PluginManager.get('plugin', pluginName));
+		});
 
-            let plugins = [];
-            config.plugins.forEach(function (pluginName) {
-                plugins.push(PluginManager.get('plugin', pluginName));
-            });
+		let actions = [];
+		config.actions.forEach(function (actionName) {
+			actions.push(PluginManager.get('action', actionName));
+		});
 
-            let actions = [];
-            config.actions.forEach(function (actionName) {
-                actions.push(PluginManager.get('action', actionName));
-            });
+		let componentProps = {
+			debug: config.debug,
+			plugins: plugins,
+			actions: actions,
+			id: attributes.id,
+			name: attributes.name,
+			defaultValue: attributes.value
+		};
 
-            ReactDOM.render(
-                <Smoke
-                    debug={config.debug}
-                    plugins={plugins}
-                    actions={actions}
-                    targetElement={element}
-                    name={name}
-                    id={id}
-                    defaultValue={defaultValue}
-                />,
-                element
-            );
+		return <Smoke {...componentProps} />;
+	}
 
-        } catch (e) {
-            console.log(e);
-        }
-    }
 }
-
-window.SmokeEditorFactory = SmokeEditorFactory;
-

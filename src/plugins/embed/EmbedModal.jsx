@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {insertDataBlock} from "megadraft";
 import {ModalDialog, ModalContainer} from 'react-modal-dialog';
 import SocialEmbed from '../../Helpers/SocialEmbed';

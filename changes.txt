@@ -1,0 +1,12 @@
+- Yarn instead of NPM
+
+- Hot loading help: https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md
+
+
+- copy-webpack-plugin version 2.1.6 due to: https://github.com/kevlened/copy-webpack-plugin/issues/29
+
+- webpack dev runs mock server because of easier hot reload configuration without middleware
+
+- Problems with webpack dev server proxy and POST requests:
+http://stackoverflow.com/questions/39636615/webpack-not-accepting-post-requests
+http://stackoverflow.com/questions/42735457/webpack-dev-server-support-for-post-put-delete-methods-using-proxy

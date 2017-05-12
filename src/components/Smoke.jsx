@@ -35,7 +35,7 @@ export default class Smoke extends React.Component {
         this.entityInputs = this.getEntityInputs();
 
     }
-    
+
     getEntityInputs = () => {
         const entityInputs = {};
         this.props.actions.forEach(function (action) {

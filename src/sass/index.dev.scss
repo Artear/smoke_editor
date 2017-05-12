@@ -1,0 +1,13 @@
+
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import "index";
+
+#editor {
+	margin-left: 100px;
+}
+
+.DraftEditor-root {
+	padding: 20px;
+	border: 1px solid #ccc;
+	margin-bottom: 30px;
+}

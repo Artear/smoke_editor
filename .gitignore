@@ -2,3 +2,5 @@ node_modules/
 public/dist/
 .idea/
 npm-debug.log
+dist
+build

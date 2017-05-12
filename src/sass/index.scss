@@ -4,6 +4,11 @@
 @import "../../node_modules/megadraft/dist/css/megadraft";
 
 
+.sidemenu__button sidemenu__button--open {
+	outline: none
+}
+
+
 .megadraft-editor .sidemenu__items--open {
   max-height: 240px;
 }
