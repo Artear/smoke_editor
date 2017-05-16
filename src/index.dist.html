@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Smoke Editor Demo</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+		<link rel="stylesheet" href="./smoke_editor.min.css">
+		<script src="./smoke_editor.min.js"></script>
+		<style>
+			#editor {
+				margin-left: 100px;
+			}
+
+			.DraftEditor-root {
+				padding: 20px;
+				border: 1px solid #ccc;
+				margin-bottom: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container-fluid">
+			<h1>Smoke Editor Dist Demo</h1>
+			<div id="editor"></div>
+		</div>
+
+		<script>
+			const config = {
+				plugins: ['EMBED', 'RELATEDCONTENT', 'IMAGE', 'RELATEDTAG', 'KALTURA', 'RELATEDUSERARTICLE'],
+				actions: ['BOLD', 'ITALIC', 'LINK', 'SUBTITLE', 'BLOCKQUOTE', 'PEOPLE', 'TAG'],
+				debug: true
+			};
+
+			const attributes = {
+				id: 'smoke-editor-id',
+				name: 'smoke-editor-name',
+				value: ''
+			};
+
+			SmokeEditorFactory.make('editor', {config, attributes});
+		</script>
+	</body>
+</html>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Smoke from './components/Smoke';
-import PluginManager from './Helpers/PluginManager';
+import Smoke from './Smoke';
+import PluginManager from '../Helpers/PluginManager';
 
 export default class SmokeEditorFactory {
 

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
+import Factory from './components/SmokeEditorFactory';
 import './sass/index.dev.scss';
-import Factory from './SmokeEditorFactory';
 
 
 const config = {
