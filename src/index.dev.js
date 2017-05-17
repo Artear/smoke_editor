@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import Factory from './components/SmokeEditorFactory';
+import DomUtils from './Helpers/DomUtils';
 import './sass/index.dev.scss';
 
 
@@ -12,20 +13,17 @@ const config = {
 	debug: true
 };
 
-const attributes = {
-	id: 'smoke-editor-id',
-	name: 'smoke-editor-name',
-	value: ''
-};
+const element = document.getElementById('my-editor');
+DomUtils.wrap(element);
 
 const render = () => {
-	const editor = Factory.make({ config, attributes });
+	const editor = Factory.make(element, config);
 
 	ReactDOM.render(
 		<AppContainer>
 			{editor}
 		</AppContainer>,
-		document.getElementById('editor')
+		element.parentElement
 	);
 };
 

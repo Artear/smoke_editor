@@ -63,6 +63,7 @@ module.exports = {
 				NODE_ENV: JSON.stringify('production')
 			}
 		}),
+		// Disables react warnings (https://github.com/facebook/react/issues/6479)
 
 		extractSass,
 
@@ -74,7 +75,8 @@ module.exports = {
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false
-			}
+			},
+			// Disables react warnings (https://github.com/facebook/react/issues/6479)
 		}),
 
 		new webpack.NamedModulesPlugin(),

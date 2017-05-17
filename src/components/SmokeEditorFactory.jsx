@@ -1,10 +1,15 @@
 import React from 'react';
 import Smoke from './Smoke';
 import PluginManager from '../Helpers/PluginManager';
+import DOMValidator from "../Helpers/DomValidator";
 
 export default class SmokeEditorFactory {
 
-	static make({config, attributes}) {
+	static make(element, config) {
+		const id = DOMValidator.getAttributeOrThrow(element, 'id');
+		const name = DOMValidator.getAttributeOrThrow(element, 'name');
+		const defaultValue = element.value.trim();
+
 		let plugins = [];
 		config.plugins.forEach(function (pluginName) {
 			plugins.push(PluginManager.get('plugin', pluginName));
@@ -17,11 +22,11 @@ export default class SmokeEditorFactory {
 
 		let componentProps = {
 			debug: config.debug,
-			plugins: plugins,
-			actions: actions,
-			id: attributes.id,
-			name: attributes.name,
-			defaultValue: attributes.value
+			plugins,
+			actions,
+			id,
+			name,
+			defaultValue
 		};
 
 		return <Smoke {...componentProps} />;

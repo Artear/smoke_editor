@@ -1,12 +1,21 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 @import "index";
 
-#editor {
-	margin-left: 100px;
+#my-editor-container {
+	margin: 40px 0 0 80px;
 }
 
-.DraftEditor-root {
+.megadraft-editor .DraftEditor-root {
 	padding: 20px;
 	border: 1px solid #ccc;
 	margin-bottom: 30px;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+#my-editor {
+	width: 100%;
+	font-family: monospace;
+	padding: 6px;
+	margin-bottom: 40px;
 }

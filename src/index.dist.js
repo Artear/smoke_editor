@@ -2,14 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Factory from './components/SmokeEditorFactory';
+import DomUtils from "./Helpers/DomUtils";
 import './sass/index.scss';
 
 
 let SmokeEditorFactoryWrapper = {
-	make: (elementId, { config, attributes }) => {
+	make: (elementId, config) => {
+		const element = document.getElementById(elementId);
+		const container = DomUtils.wrap(element);
+
 		ReactDOM.render(
-			Factory.make({ config, attributes }),
-			document.getElementById(elementId)
+			Factory.make(element, config),
+			container
 		);
 	}
 };
