@@ -16,14 +16,12 @@ export default class Smoke extends React.Component {
         super(props);
         let editorState = null;
 
-        this.decorator = this.getDecorator();
-
+				let contentState = null;
         if (props.defaultValue.length > 0) {
-            const contentState = JSON.parse(props.defaultValue);
-            editorState = editorStateFromRaw(contentState);
-        } else {
-            editorState = editorStateFromRaw(null);
+            contentState = JSON.parse(props.defaultValue);
         }
+
+				editorState = editorStateFromRaw(contentState, this.getDecorator());
 
         this.state = {
             editorState: editorState,
