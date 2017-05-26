@@ -23,12 +23,23 @@ It uses Megadraft as core editor. Support for other draftjs based editors will b
 
 ```
 
+## Requirements
+
+* [Yarn](https://yarnpkg.com/en/docs/install) package manager ([see installation instructions]([Yarn](https://yarnpkg.com/en/docs/install)))
 
 ## Development
 
-* ```yarn run start``` starts dev server at port 8081
-* ```PORT={value} yarn run start``` starts dev server at the specified port number
-* ```yarn run build``` build distribution version to the `dist` folder
+* `yarn` installs dependencies
+* `yarn run start` starts dev server at default port `8081`
+* `PORT={value} yarn run start` starts dev server at the specified port number
+* `yarn run build` build distribution version to the `dist` folder
+
+### Generating a new version
+
+* Run `yarn version --new-version [type]`, where type can be `major|minor|patch|prerelease` according to the 
+nature of the change
+* The version tag will be bumped by yarn, and after that a new tag commit will be generated and pushed,
+including the `dist` folder
 
 
 ## Notes and resources
