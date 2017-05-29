@@ -12,8 +12,9 @@ export default class View extends React.Component {
         this.state = {
             isShowingModal: this.props.isShowingModal,
             message: {status: 'info', text: 'Seleccioná una imágen'},
-            file:{},
-            resumableHeaders: {}
+            file: {},
+            resumableHeaders: {},
+						isImageValid: false
         };
     }
 
@@ -87,26 +88,47 @@ export default class View extends React.Component {
                             service={config.resumableService}
                             disableDragAndDrop={true}
                             onFileSuccess={(file, message) => {
-                                this.setState({message: {status: 'success',text: 'Imagen seleccionada: <b>' + file.file.name + '</b>'}});
-                                this.setState({file: file});
+                                this.setState({
+																	message: {
+																		status: 'success',
+																		text: 'Imagen seleccionada: <b>' + file.file.name + '</b>'
+																	},
+																	file: file,
+																	isImageValid: true
+                                });
                             }}
                             onFileAdded={(file, resumable) => {
                                 resumable.upload();
                             }}
                             onFileRemoved={(file) => {
-                                this.setState({message: {status: 'info', text: 'Seleccioná una imágen'}});
+                                this.setState({
+																	message: {
+																		status: 'info',
+																		text: 'Seleccioná una imágen'
+																	},
+																	isImageValid: false
+                                });
                             }}
                             onMaxFileSizeErrorCallback={(file, errorCount) => {
                                 console.log('Error! Max file size reached: ', file);
                                 console.log('errorCount: ', errorCount);
                             }}
+														onUploadErrorCallback={(file, error) => {
+															this.setState({
+																message: {
+																	status: 'danger',
+																	text: error
+																},
+																isImageValid: false
+															});
+														}}
                             fileNameServer="file"
                             tmpDir={config.tmpDir}
                             maxFiles={1}
                         />
 
                         <div className="form-actions">
-                            <button className="btn btn-primary form-submit" onClick={this.saveData}>Aceptar</button>
+                            <button className="btn btn-primary form-submit" disabled={!this.state.isImageValid} onClick={this.saveData}>Aceptar</button>
                         </div>
                     </ModalDialog>
                 </ModalContainer>
