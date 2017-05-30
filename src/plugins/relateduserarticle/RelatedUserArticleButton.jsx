@@ -3,7 +3,7 @@ import icons from "../../icons/icons";
 import {insertDataBlock} from "megadraft";
 import {Modifier, EditorState} from "draft-js";
 
-import Modal from './RelatedUserArticleModal';
+import Modal from './modal';
 
 export default class RelatedUserArticleButton extends Component {
 

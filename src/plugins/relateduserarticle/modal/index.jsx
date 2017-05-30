@@ -2,27 +2,20 @@ import React from 'react';
 import { insertDataBlock} from 'megadraft';
 import { ModalDialog, ModalContainer } from 'react-modal-dialog';
 import axios from 'axios';
-import config from './config';
+import config from '../config';
+
+import { extractArticleIdFromInput } from '../utils';
+import UserArticleFetchSection from './UserArticleFetchSection';
+import Header from './Header';
 
 const ERR_ARTICLE_HAS_NO_MEDIA = 'La nota seleccionada no posee imagen/video';
-const LABEL_BTN_STATUS_FETCHING = 'Procesando...';
-const LABEL_BTN_STATUS_IDLE = 'Insertar';
 
 const initialState = {
     isFocused: false,
     enableFetch: false,
-    errorMessage: null
+    errorMessage: null,
+		userArticle: null
 };
-
-function extractArticleIdFromInput(value) {
-    const matches = value.match(/(\d+)$/);
-
-    if (!matches) {
-        return false;
-    }
-
-    return matches[0];
-}
 
 export default class RelatedUserArticleModal extends React.Component {
 
@@ -61,16 +54,19 @@ export default class RelatedUserArticleModal extends React.Component {
 
         axios.get(url)
             .then(response => {
-                const article = response.data;
+                const userArticle = response.data;
 
-                if (this.isArticleValid(article)) {
-                    setTimeout(() => this.saveData(article), 0);
+                if (this.validateArticle(userArticle)) {
+										this.setState({
+											userArticle
+										});
+                    //setTimeout(() => this.saveData(article), 0);
                 }
             })
             .catch(response => {
                 this.setState({
-                    enableFetch: true,
-                    errorMessage: response.data
+                    errorMessage: response.data,
+										userArticle: null
                 });
             })
             .then(() => {
@@ -100,8 +96,8 @@ export default class RelatedUserArticleModal extends React.Component {
         this.props.onChange(insertDataBlock(this.props.editorState, data));
     };
 
-    isArticleValid = (article) => {
-        if (!article.image && !article.kaltura_id) {
+    validateArticle = (article) => {
+        if (!article.images && !article.videos) {
             this.setState({
                 errorMessage: ERR_ARTICLE_HAS_NO_MEDIA
             });
@@ -112,17 +108,7 @@ export default class RelatedUserArticleModal extends React.Component {
         return true;
     };
 
-    validateInput = () => {
-        const isValid = extractArticleIdFromInput(this.input.value);
-
-        this.setState({
-            enableFetch: isValid
-        });
-    };
-
     setFocus = () => {
-        this.input.focus();
-        this.input.select();
         this.setState({ isFocused: true });
     };
 
@@ -137,15 +123,10 @@ export default class RelatedUserArticleModal extends React.Component {
         this.setState({ isFocused: false });
     };
 
-    handleChange = (e) => {
+		onArticleIdChange = (e) => {
         this.setState({
             errorMessage: null
         });
-        this.validateInput();
-    };
-
-    handleBlur = (e) => {
-        this.setState({ isFocused: true });
     };
 
     render() {
@@ -155,30 +136,20 @@ export default class RelatedUserArticleModal extends React.Component {
                 this.state.isShowingModal &&
                 <ModalContainer onClose={this.handleClose}>
                     <ModalDialog className="modal-dialog modal-dialog-plugin-relateduserarticle" width="400" onClose={this.handleClose}>
-                        <p className="modal-dialog-header">
-                            Inserte URL o ID de la nota de TN y la Gente
-                        </p>
+                        <Header error={this.state.errorMessage} />
 
-                        {
-                            this.state.errorMessage &&
-                            <div className="alert alert-danger">
-                                <i className="glyphicon glyphicon-exclamation-sign"></i> Error: {this.state.errorMessage}
-                            </div>
-                        }
+												<UserArticleFetchSection
+														onChange={this.onArticleIdChange}
+														onClick={this.getUserArticle}
+														enableFetch={this.state.enableFetch}
+														isFetching={this.state.isFetching} />
 
-                        <div className="form-inline">
-                            <input onChange={this.handleChange}
-                                   disabled={this.state.isFetching}
-                                   onBlur={this.handleBlur}
-                                   className="form-control"
-                                   ref={(ref) => this.input = ref} />
-                            &nbsp;
-                            <button onClick={this.getUserArticle}
-                                    disabled={!this.state.enableFetch || this.state.isFetching}
-                                    className="btn btn-primary">
-                                <i className="glyphicon glyphicon-ok"></i> { this.state.isFetching ? LABEL_BTN_STATUS_FETCHING : LABEL_BTN_STATUS_IDLE }
-                            </button>
-                        </div>
+												{
+													this.state.userArticle &&
+														<UserArticleMediaSelector
+															userArticle={this.userArticle}
+															onMediaSelect={this.selectArticleMedia} />
+												}
                     </ModalDialog>
                 </ModalContainer>
             }
