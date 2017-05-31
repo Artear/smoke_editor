@@ -1,4 +1,19 @@
-.modal-dialog-plugin-relateduserarticle {
+.plugin-relateduserarticle-block {
+}
+
+.plugin-relateduserarticle-block__indicator {
+	position: absolute;
+	top: 15px;
+	left: 12px;
+	font-weight: bold;
+	color: #999;
+}
+
+.plugin-relateduserarticle-modal {
+
+	top: 60px !important;
+	max-height: 480px;
+	overflow: auto;
 
   .form-inline {
     display: flex;
@@ -10,10 +25,43 @@
 
 }
 
-.related-userarticle-block-indicator {
-  position: absolute;
-  top: 15px;
-  left: 12px;
-  font-weight: bold;
-  color: #999;
+.plugin-relateduserarticle-modal__images-selector-entry,
+.plugin-relateduserarticle-modal__videos-selector-entry {
+	float: left;
+	margin-top: 20px;
+	margin-right: 20px;
+	border: 1px solid #ddd;
+	padding: 6px;
+	border-radius: 2px;
 }
+
+.plugin-relateduserarticle-modal__images-selector-entry {
+	img {
+		width: auto;
+		height: 100px;
+		margin-bottom: 6px;
+	}
+}
+
+.plugin-relateduserarticle-modal__videos-selector-entry {
+	position: relative;
+
+	video {
+		width: auto;
+		height: 140px;
+		margin-bottom: 6px;
+	}
+}
+
+.plugin-relateduserarticle-modal__videos-selector-entry-id {
+	position: absolute;
+	font-size: 12px;
+	color: white;
+	font-weight: bold;
+	background: rgba(0, 0, 0, 0.7);
+	padding: 2px;
+	border-radius: 2px;
+	top: 8px;
+	right: 8px;
+}
+

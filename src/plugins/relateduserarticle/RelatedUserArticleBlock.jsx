@@ -11,16 +11,17 @@ import RelatedUserArticleVideo from './RelatedUserArticleVideo';
 export default class RelatedUserArticleBlock extends Component {
 
     render() {
-        const article = this.props.data.article;
+        const data = this.props.data.data;
+        const isImage = data.selectedMedia.type === 'image';
 
         return (
-            <div className="related-userarticle-block" style={{position: 'relative'}}>
-                <div className="related-userarticle-block-indicator">
-                    { article.image ? 'Imagen' : 'Video' } de nota de TN y la Gente (#{ article.nid })
+            <div className="plugin-relateduserarticle-block" style={{position: 'relative'}}>
+                <div className="plugin-relateduserarticle-block__indicator">
+                    { isImage ? 'Imagen' : 'Video' } de nota de TN y la Gente (#{ data.nid })
                 </div>
                 {
-                    article.image ?
-                        <ImageBlock {...this.props} data={{src: article.image}} /> :
+										isImage ?
+                        <ImageBlock {...this.props} data={{src: data.selectedMedia.url}} /> :
                         <RelatedUserArticleVideo {...this.props} />
                 }
             </div>
