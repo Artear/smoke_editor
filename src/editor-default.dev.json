@@ -1,0 +1,393 @@
+{
+	"entityMap":{
+		"0":{
+			"type":"TAG_LINK",
+			"mutability":"INMUTABLE",
+			"data":{
+				"type":"tag",
+				"url":"http://tn.com.ar/tags/tags"
+			}
+		},
+		"1":{
+			"type":"PEOPLE_LINK",
+			"mutability":"INMUTABLE",
+			"data":{
+				"type":"people",
+				"url":"http://tn.com.ar/personajes/people"
+			}
+		}
+	},
+	"blocks":[
+		{
+			"key":"3v4d2",
+			"text":"This is a default test content for the Smoke Editor. This is a tags link and this one a people link.",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":10,
+					"length":7,
+					"style":"BOLD"
+				},
+				{
+					"offset":39,
+					"length":14,
+					"style":"BOLD"
+				},
+				{
+					"offset":23,
+					"length":7,
+					"style":"ITALIC"
+				}
+			],
+			"entityRanges":[
+				{
+					"offset":63,
+					"length":4,
+					"key":0
+				},
+				{
+					"offset":88,
+					"length":6,
+					"key":1
+				}
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"aq13t",
+			"text":"The problem with quotes found on the internet is that they are often not true. Abraham Lincoln",
+			"type":"blockquote",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"2c3u8",
+			"text":"External embeds plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":23,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"417o1",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"data":{
+					"content":"<iframe src=\"https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d88360.2929462601!2d-58.439114828245756!3d-34.61151846743261!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1495034193171\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"></iframe>",
+					"script":[
+
+					]
+				},
+				"type":"embed",
+				"dataType":"googlemap"
+			}
+		},
+		{
+			"key":"ts3c",
+			"text":"Related content plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":23,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"7v48n",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"relatedcontent",
+				"dataType":"relatedcontent",
+				"data":{
+					"title":"Llegó Messi",
+					"href":"/deportes/llego-messi_011094",
+					"nid":"11094"
+				}
+			}
+		},
+		{
+			"key":"8dg78",
+			"text":"Image plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":13,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"68e3r",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"filename":"sample.jpg",
+				"type":"image",
+				"dataType":"image",
+				"src":"/sites/default/files/uploader/sample.jpg",
+				"caption":"This is the image caption"
+			}
+		},
+		{
+			"key":"7nf4l",
+			"text":"Related tags/people plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":27,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"1b8j3",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"relatedtag",
+				"dataType":"relatedtag",
+				"data":{
+					"tag":{
+						"name":"Ronaldo",
+						"url":"personajes/ronaldo"
+					},
+					"articles":[
+						{
+							"nid":"750835",
+							"url":"/deportes/esencial/como-ronaldo-al-compostela-una-maravilla-de-gol-de-la-barcelonista-barbara-latorre_750835",
+							"title":"Como Ronaldo al Compostela: una maravilla de gol de la barcelonista Bárbara Latorre"
+						},
+						{
+							"nid":"749151",
+							"url":"/deportes/esencial/el-gordo-ronaldo-tiro-una-bomba-y-en-barcelona-le-hicieron-la-cruz_749151",
+							"title":"El Gordo Ronaldo tiró una BOMBA y en Barcelona le hicieron la cruz"
+						},
+						{
+							"nid":"747729",
+							"url":"/deportes/after-play/el-lobo-zavibaka-es-la-mascota-oficial-del-mundial-de-rusia-2018_747729",
+							"title":"El lobo Zavibaka es la mascota oficial del Mundial de Rusia 2018"
+						}
+					]
+				}
+			}
+		},
+		{
+			"key":"903tl",
+			"text":"Kaltura plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":15,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"452v",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"kaltura",
+				"dataType":"kaltura",
+				"data":{
+					"title":"Buffon, el héroe: le dio a Italia el tercer puesto - video 1",
+					"nid":"468534",
+					"kalturaid":"0_uuhav215"
+				}
+			}
+		},
+		{
+			"key":"8gu7q",
+			"text":"Related user article plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":28,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"d44tg",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"relateduserarticle",
+				"dataType":"relateduserarticle",
+				"article":{
+					"nid":"222",
+					"media":{
+						"type":"image",
+						"dataType":"image",
+						"src":"http://cdn-stg.tn.com.ar/sites/default/files/2016/09/06/20160802_111019.jpg",
+						"caption":"This is the related user article image caption"
+					}
+				}
+			}
+		},
+		{
+			"key":"ce7qa",
+			"text":"",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"eaou3",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"relateduserarticle",
+				"dataType":"relateduserarticle",
+				"article":{
+					"nid":"333",
+					"media":{
+						"type":"kaltura",
+						"dataType":"kaltura",
+						"data":{
+							"kaltura_id":"0_9hp232pg",
+							"title":""
+						}
+					}
+				}
+			}
+		},
+		{
+			"key":"4qf1s",
+			"text":"",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		}
+	]
+}

@@ -79,9 +79,10 @@ module.exports = {
 		// prints more readable module names in the browser console on HMR updates,
 
 		new HtmlWebpackPlugin({
-			template: 'index.dev.html',
+			template: 'index.dev.ejs',
 			filename: 'index.html',
-			inject: 'body'
+			inject: 'body',
+			editorDefault: JSON.stringify(require('./src/editor-default.dev.json'))
 		}),
 
 		new ProgressBarPlugin({ clear: false })
