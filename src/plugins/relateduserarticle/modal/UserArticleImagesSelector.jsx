@@ -8,11 +8,12 @@ export default class UserArticleImagesSelector extends Component {
 
 	select = (image) => {
 			// Updated media Draft data must currently match with
-			// the one given by the ImageBlock
+			// the one given by the ImageBlock, plus the image fid
 			this.props.selectMedia({
 					type: 'image',
 					dataType: 'image',
-					src: image.url
+					src: image.url,
+					fid: image.fid
 			});
 	};
 
