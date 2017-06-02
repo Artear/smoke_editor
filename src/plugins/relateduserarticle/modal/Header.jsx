@@ -13,8 +13,7 @@ export default props => {
 			{
 				props.error &&
 				<div className="alert alert-danger">
-					<i className="glyphicon glyphicon-exclamation-sign"></i>
-					Error: {props.error}
+					<i className="glyphicon glyphicon-exclamation-sign"></i> Error: {props.error}
 				</div>
 			}
 		</div>

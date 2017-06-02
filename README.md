@@ -60,3 +60,4 @@ including the `dist` folder
 * tests
 * editor as a React-only component (no DOM input creation) for React environments
 * generate DOM wrapper automatically for non React environments
+* banners

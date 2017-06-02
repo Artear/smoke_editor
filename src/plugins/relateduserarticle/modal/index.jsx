@@ -53,7 +53,7 @@ export default class RelatedUserArticleModal extends React.Component {
 										});
                 }
             })
-            .catch(response => {
+            .catch(({response}) => {
                 this.setState({
                     errorMessage: response.data,
 										userArticle: null

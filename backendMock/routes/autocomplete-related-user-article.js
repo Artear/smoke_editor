@@ -1,5 +1,15 @@
 module.exports = function (router) {
 	router.get('/smoke-editor/autocomplete/related-user-article/:id', function (req, res, next) {
+		if (req.params.id.replace(/0/g, '') === '') {
+			res.status(400).send('La nota ingresada es inválida!');
+			return;
+		}
+
+		if (req.params.id.replace(/0/g, '') === '1') {
+			res.status(400).send('La nota ingresada aún no está publicada!');
+			return;
+		}
+
 		if (parseInt(req.params.id) % 2 === 0) {
 			res.send({
 				"nid": req.params.id,
