@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Modifier, EditorState, convertToRaw, RichUtils, SelectionState } from 'draft-js';
 import ImageBlock from '../image/ImageBlock';
-import RelatedUserArticleVideo from './RelatedUserArticleVideo';
+import RelatedUserArticleVideoBlock from './RelatedUserArticleVideoBlock';
 
 /**
  * Related UserArticle block for the editor.
@@ -10,19 +10,32 @@ import RelatedUserArticleVideo from './RelatedUserArticleVideo';
  */
 export default class RelatedUserArticleBlock extends Component {
 
+		updateData = (payload) => {
+			  if ('caption' in payload) {
+			  	 	let caption = payload.caption;
+						payload = {
+								...this.props.data
+						};
+						payload.article.media.caption = caption;
+				}
+
+				this.props.container.updateData(payload);
+		};
+
     render() {
-        const data = this.props.data.data;
-        const isImage = data.selectedMedia.type === 'image';
+				const article = this.props.data.article;
+        const media = article.media;
+        const isImage = media.type === 'image';
 
         return (
             <div className="plugin-relateduserarticle-block" style={{position: 'relative'}}>
                 <div className="plugin-relateduserarticle-block__indicator">
-                    { isImage ? 'Imagen' : 'Video' } de nota de TN y la Gente (#{ data.nid })
+                    { isImage ? 'Imagen' : 'Video' } de nota de TN y la Gente (#{ article.nid })
                 </div>
                 {
 										isImage ?
-                        <ImageBlock {...this.props} data={{src: data.selectedMedia.url}} /> :
-                        <RelatedUserArticleVideo {...this.props} />
+												<ImageBlock {...this.props} updateData={this.updateData} data={media} /> :
+                        <RelatedUserArticleVideoBlock {...this.props} />
                 }
             </div>
         );

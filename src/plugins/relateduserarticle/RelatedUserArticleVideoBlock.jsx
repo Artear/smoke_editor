@@ -5,7 +5,7 @@ import icons from '../../icons/icons';
 /**
  * Dummy component that shows a Kaltura video placeholder
  */
-export default function RelatedUserArticleVideo(props) {
+export default function RelatedUserArticleVideoBlock(props) {
     const actions = [
         {
             'key': 'delete',

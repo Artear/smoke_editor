@@ -72,9 +72,9 @@ export default class RelatedUserArticleModal extends React.Component {
         const data = {
             type: 'relateduserarticle',
             dataType: 'relateduserarticle',
-						data: {
+						article: {
 								nid:  this.state.userArticle.nid,
-								selectedMedia: this.state.selectedMedia
+								media: this.state.media
 						}
         };
 
@@ -111,7 +111,7 @@ export default class RelatedUserArticleModal extends React.Component {
 
 		selectMedia = (media) => {
 				this.setState({
-						selectedMedia: media
+						media
 				}, this.addData);
 		};
 
@@ -121,7 +121,7 @@ export default class RelatedUserArticleModal extends React.Component {
             {
                 this.state.isShowingModal &&
                 <ModalContainer onClose={this.handleClose}>
-                    <ModalDialog className="modal-dialog plugin-relateduserarticle-modal" width="700" onClose={this.handleClose}>
+                    <ModalDialog className="modal-dialog plugin-relateduserarticle-modal" width="700px" onClose={this.handleClose}>
                         <Header error={this.state.errorMessage} />
 
 												<UserArticleFetchSection

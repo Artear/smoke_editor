@@ -7,9 +7,12 @@ import React, { Component } from 'react';
 export default class UserArticleImagesSelector extends Component {
 
 	select = (image) => {
+			// Updated media Draft data must currently match with
+			// the one given by the ImageBlock
 			this.props.selectMedia({
 					type: 'image',
-					...image
+					dataType: 'image',
+					src: image.url
 			});
 	};
 
@@ -20,7 +23,7 @@ export default class UserArticleImagesSelector extends Component {
 							this.props.images.map(image => {
 									return (
 											<div className="plugin-relateduserarticle-modal__images-selector-entry" key={image.fid}>
-													<img data-fid={image.fid} src={image.url} />
+													<img src={image.url} />
 													<button className="btn btn-default btn-block" onClick={() => this.select(image)}>
 															<i className="glyphicon glyphicon glyphicon-picture"></i> Seleccionar
 													</button>

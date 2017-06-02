@@ -14,7 +14,6 @@ export default class ImageBlock extends Component {
         super(props);
 
         this._handleCaptionChange = ::this._handleCaptionChange;
-        this._handleRightsHolderChange = ::this._handleRightsHolderChange;
 
         this.actions = [
             {"key": "delete", "icon": icons.DeleteIcon, "action": this.props.container.remove}
@@ -23,12 +22,14 @@ export default class ImageBlock extends Component {
 
     _handleCaptionChange(event) {
         event.stopPropagation();
-        this.props.container.updateData({caption: event.target.value});
-    }
 
-    _handleRightsHolderChange(event) {
-        event.stopPropagation();
-        this.props.container.updateData({rightsHolder: event.target.value});
+        const payload = {
+        		caption: event.target.value
+        };
+
+        this.props.updateData ?
+						this.props.updateData(payload) :
+        		this.props.container.updateData(payload);
     }
 
     render() {
