@@ -29,7 +29,7 @@ export default class UserArticleFetchSection extends Component {
 	};
 
 	onClick = () => {
-		this.props.fetchUserArticle(this.input.value);
+		this.props.fetchUserArticle(extractArticleIdFromInput(this.input.value));
 	};
 
 	render() {
