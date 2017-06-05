@@ -388,6 +388,98 @@
 			"data":{
 
 			}
+		},
+		{
+			"key":"8gu70",
+			"text":"Related user article plugin (v0 format):",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":41,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"d44t0",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"relateduserarticle",
+				"dataType":"relateduserarticle",
+				"article":{
+					"nid":"222",
+					"image":"http://cdn-stg.tn.com.ar/sites/default/files/2016/09/06/20160802_111019.jpg"
+				}
+			}
+		},
+		{
+			"key":"ce7q0",
+			"text":"",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"eaou0",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"relateduserarticle",
+				"dataType":"relateduserarticle",
+				"article":{
+					"nid":"333",
+					"media":{
+						"type":"kaltura",
+						"kaltura_id":"0_9hp232pg"
+					}
+				}
+			}
+		},
+		{
+			"key":"4qf10",
+			"text":"",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
 		}
 	]
 }

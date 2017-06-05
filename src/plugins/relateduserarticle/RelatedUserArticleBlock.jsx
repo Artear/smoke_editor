@@ -24,7 +24,28 @@ export default class RelatedUserArticleBlock extends Component {
 
     render() {
 				const article = this.props.data.article;
-        const media = article.media;
+        let media = article.media;
+
+        if (!media) {
+					// If there is no media field, the format corresponds to the v0 version
+					// that uses 'image' and 'kaltura_id' fields under article
+
+					if (article.image) {
+						media = {
+							type: 'image',
+							src: article.image,
+							caption: article.caption
+						};
+					} else {
+						media = {
+							type: 'kaltura',
+							data: {
+								kaltura_id: article.kaltura_id
+							}
+						};
+					}
+				}
+
         const isImage = media.type === 'image';
 
         return (
