@@ -1,3 +1,20 @@
+<a name="0.5.4"></a>
+## [0.5.4](https://github.com/Artear/smoke_editor/compare/v0.5.2...v0.5.4) (2017-06-06)
+
+
+### Bug Fixes
+
+* check for previous related user article format ([adf10a7](https://github.com/Artear/smoke_editor/commit/adf10a7))
+* extract related user article id before fetching content ([7328464](https://github.com/Artear/smoke_editor/commit/7328464))
+* generate build during version creation ([5b21f5b](https://github.com/Artear/smoke_editor/commit/5b21f5b))
+
+
+### Features
+
+* add conventional changelog functionality ([bcc7071](https://github.com/Artear/smoke_editor/commit/bcc7071))
+
+
+
 <a name="0.5.3"></a>
 ## [0.5.3](https://github.com/Artear/smoke_editor/compare/v0.5.2...v0.5.3) (2017-06-06)
 
