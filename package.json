@@ -11,7 +11,7 @@
 		"build": "webpack --config webpack.config.dist.js",
 		"preversion": "./scripts/check-on-master.sh",
 		"version": "yarn run build && conventional-changelog -p angular -i CHANGELOG.md -s && git add -f dist CHANGELOG.md",
-		"postversion": "git push --follow-tags"
+		"postversion": "git push --follow-tags && conventional-github-releaser -p angular"
 	},
 	"devDependencies": {
 		"axios": "^0.16.1",
@@ -26,6 +26,7 @@
 		"bootstrap": "^3.3.7",
 		"conventional-changelog-angular": "^1.3.3",
 		"conventional-changelog-cli": "^1.3.1",
+		"conventional-github-releaser": "^1.1.11",
 		"cookie-parser": "~1.4.3",
 		"copy-webpack-plugin": "2.1.6",
 		"css-loader": "^0.28.1",
