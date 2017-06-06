@@ -10,7 +10,7 @@
 		"start": "webpack-dev-server --config webpack.config.dev.js",
 		"build": "webpack --config webpack.config.dist.js",
 		"preversion": "./scripts/check-on-master.sh",
-		"version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+		"version": "yarn run build && conventional-changelog -p angular -i CHANGELOG.md -s && git add -f dist CHANGELOG.md",
 		"postversion": "git push --follow-tags"
 	},
 	"devDependencies": {
