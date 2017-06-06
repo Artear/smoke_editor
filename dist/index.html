@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Smoke Editor Demo</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+		<link rel="stylesheet" href="./smoke_editor.min.css">
+		<script src="./smoke_editor.min.js"></script>
+		<style>
+			#my-editor-container {
+				margin: 40px 0 0 80px;
+			}
+
+			.megadraft-editor .DraftEditor-root {
+				padding: 20px;
+				border: 1px solid #ccc;
+				margin-bottom: 30px;
+				font-size: 16px;
+				line-height: 16px;
+			}
+
+			#my-editor {
+				width: 100%;
+				font-family: monospace;
+				padding: 6px;
+				margin-bottom: 40px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container-fluid">
+			<h1>Smoke Editor dist demo</h1>
+
+			<textarea id="my-editor" name="my-editor-name">
+				{  "entityMap": {},  "blocks": [    {      "key": "3v4d2",      "text": "This is a default test content for the Smoke Editor",      "type": "unstyled",      "depth": 0,      "inlineStyleRanges": [        {          "offset": 39,          "length": 12,          "style": "BOLD"        }      ],      "entityRanges": [],      "data": {}    },    {      "key": "417o1",      "text": "",      "type": "atomic",      "depth": 0,      "inlineStyleRanges": [],      "entityRanges": [],      "data": {        "data": {          "content": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d88360.2929462601!2d-58.439114828245756!3d-34.61151846743261!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1495034193171\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"></iframe>",          "script": []        },        "type": "embed",        "dataType": "googlemap"      }    },    {      "key": "ts3c",      "text": "",      "type": "unstyled",      "depth": 0,      "inlineStyleRanges": [],      "entityRanges": [],      "data": {}    }  ]}
+			</textarea>
+		</div>
+
+		<script>
+			const config = {
+				plugins: ['EMBED', 'RELATEDCONTENT', 'IMAGE', 'RELATEDTAG', 'KALTURA', 'RELATEDUSERARTICLE'],
+				actions: ['BOLD', 'ITALIC', 'LINK', 'SUBTITLE', 'BLOCKQUOTE', 'PEOPLE', 'TAG'],
+				debug: true
+			};
+
+			SmokeEditorFactory.make('my-editor', config);
+		</script>
+	</body>
+</html>
