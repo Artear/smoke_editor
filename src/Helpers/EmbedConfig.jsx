@@ -15,6 +15,7 @@ export default  {
     IMGUR: {domObj:"BLOCKQUOTE",compare:{attr:"class",value:"imgur-embed-pub"}, blockName:"imgur"},
     VIMEO: {domObj:"IFRAME",compare:{attr:"src",value:"player.vimeo.com/video"}, blockName:"vimeo"},
     TIMELINE: {domObj:"IFRAME",compare:{attr:"src",value:"cdn.knightlab.com"}, blockName:"timeline"},
+    JUXTAPOSE: {domObj:"IFRAME",compare:{attr:"src",value:"cdn.knightlab.com/libs/juxtapose"}, blockName:"juxtapose"},
     CLARINVIDEO: {domObj:"IFRAME",compare:{attr:"src",value:"vodgc.com/p"}, blockName:"clarinvideo"},
     MIXCLOUD: {domObj:"IFRAME",compare:{attr:"src",value:"mixcloud.com/widget/iframe/"}, blockName:"mixcloud"},
     THINGLINKSIMG: {domObj:"IFRAME",compare:{attr:"src",value:"server.js.thinglink.com/card/"}, blockName:"thinglink"},
