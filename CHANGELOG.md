@@ -1,3 +1,14 @@
+<a name="0.5.5"></a>
+## [0.5.5](https://github.com/Artear/smoke_editor/compare/v0.5.4...v0.5.5) (2017-07-10)
+
+
+### Features
+
+* generate github releases during postversion ([31e2a61](https://github.com/Artear/smoke_editor/commit/31e2a61))
+* new embed Juxtapose ([078c689](https://github.com/Artear/smoke_editor/commit/078c689))
+
+
+
 <a name="0.5.4"></a>
 ## [0.5.4](https://github.com/Artear/smoke_editor/compare/v0.5.2...v0.5.4) (2017-06-06)
 
