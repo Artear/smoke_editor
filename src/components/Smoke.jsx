@@ -92,6 +92,7 @@ export default class Smoke extends React.Component {
                     onChange={this.onChange}
                     blockRenderMap={this.blockRenderMap()}
                     entityInputs={this.entityInputs}
+                    spellCheck="true"
                     />
                 <input type={inputType} readOnly name={this.state.name} id={this.state.id} value={this.state.smokeJson}/>
             </div>
