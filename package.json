@@ -11,7 +11,10 @@
 		"build": "webpack --config webpack.config.dist.js",
 		"preversion": "./scripts/check-on-master.sh",
 		"version": "yarn run build && conventional-changelog -p angular -i CHANGELOG.md -s && git add -f dist CHANGELOG.md",
-		"postversion": "git push --follow-tags && conventional-github-releaser -p angular"
+		"postversion": "yarn run release:push-tags && yarn run release:github-release && npm run release:update-develop",
+		"release:push-tags": "git push --follow-tags",
+		"release:github-release": "conventional-github-releaser -p angular",
+		"release:update-develop": "git checkout develop && git merge master && git push && git checkout master"
 	},
 	"devDependencies": {
 		"axios": "^0.16.1",
