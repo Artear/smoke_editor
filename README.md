@@ -26,6 +26,7 @@ It uses Megadraft as core editor. Support for other draftjs based editors will b
 ## Requirements
 
 * [Yarn](https://yarnpkg.com/en/docs/install) package manager ([see installation instructions]([Yarn](https://yarnpkg.com/en/docs/install)))
+* Configure [conventional github releaser](https://github.com/conventional-changelog/conventional-github-releaser) if you will generate releases. 
 
 ## Development
 
@@ -33,6 +34,10 @@ It uses Megadraft as core editor. Support for other draftjs based editors will b
 * `yarn run start` starts dev server at default port `8081`
 * `PORT={value} yarn run start` starts dev server at the specified port number
 * `yarn run build` build distribution version to the `dist` folder
+
+### Commits format
+
+This project follows the [conventional changelog](https://github.com/conventional-changelog/conventional-changelog) Angular spec.
 
 ### Generating a new version
 
