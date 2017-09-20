@@ -1,3 +1,3 @@
 export default {
-    url: "http://tn.com.ar/tags/",
+    url: "//tn.com.ar/tags/",
 };
