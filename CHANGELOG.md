@@ -1,3 +1,14 @@
+<a name="0.6.2"></a>
+## [0.6.2](https://github.com/Artear/smoke_editor/compare/v0.6.1...v0.6.2) (2017-09-20)
+
+
+### Features
+
+* add commit message validation script ([dd1eef8](https://github.com/Artear/smoke_editor/commit/dd1eef8))
+* update release scripts and add develop merge from master ([3c7525b](https://github.com/Artear/smoke_editor/commit/3c7525b))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/Artear/smoke_editor/compare/v0.6.0...v0.6.1) (2017-09-20)
 
