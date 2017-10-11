@@ -1,3 +1,13 @@
+<a name="0.6.3"></a>
+## [0.6.3](https://github.com/Artear/smoke_editor/compare/v0.6.2...v0.6.3) (2017-10-11)
+
+
+### Features
+
+* warn about non https src attributes in embeds ([75d0696](https://github.com/Artear/smoke_editor/commit/75d0696))
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/Artear/smoke_editor/compare/v0.6.1...v0.6.2) (2017-09-20)
 
