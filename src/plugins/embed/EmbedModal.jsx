@@ -4,6 +4,12 @@ import {ModalDialog, ModalContainer} from 'react-modal-dialog';
 import SocialEmbed from '../../Helpers/SocialEmbed';
 import Errors from '../../Helpers/ErrorMessages';
 
+const UNSECURE_SRC_REGEX = /src=(["'])http:\/\/[^"']*\1/;
+
+const UNSECURE_SRC_PROMPT = `
+	ADVERTENCIA: está a punto de insertar un embebido cuyo origen no es HTTPS y \
+	que podría no mostrarse en la versión segura del sitio. ¿Desea continuar?
+`;
 
 export default class View extends React.Component {
     constructor(props) {
@@ -27,10 +33,18 @@ export default class View extends React.Component {
     };
 
     saveData = (e) => {
-        if (this.state.message.status === 'success' || 'warning' ) {
-            this.addData(SocialEmbed.createDataObject(this.textarea.value));
-            this.handleClose(e);
+        if (!(this.state.message.status === 'success' || 'warning' )) {
+        		return;
         }
+
+        const data = SocialEmbed.createDataObject(this.textarea.value);
+        if (data.data.content.match(UNSECURE_SRC_REGEX) &&
+						!window.confirm(UNSECURE_SRC_PROMPT)) {
+					  return;
+				}
+
+				this.addData(data);
+				this.handleClose(e);
     };
 
     handleClose = () => {
