@@ -1,3 +1,18 @@
+<a name="0.6.4"></a>
+## [0.6.4](https://github.com/Artear/smoke_editor/compare/v0.6.3...v0.6.4) (2017-11-02)
+
+
+### Bug Fixes
+
+* change agnostic tags/people urls to https [TNRE-4600] (#19) ([247db74](https://github.com/Artear/smoke_editor/commit/247db74))
+
+
+### Features
+
+* circle ci integration ([c9af113](https://github.com/Artear/smoke_editor/commit/c9af113))
+
+
+
 <a name="0.6.3"></a>
 ## [0.6.3](https://github.com/Artear/smoke_editor/compare/v0.6.2...v0.6.3) (2017-10-11)
 
