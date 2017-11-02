@@ -10,12 +10,16 @@
 		"start": "webpack-dev-server --config webpack.config.dev.js",
 		"build": "webpack --config webpack.config.dist.js",
 		"preversion": "./scripts/check-on-master.sh",
-		"version": "yarn run build && conventional-changelog -p angular -i CHANGELOG.md -s && git add -f dist CHANGELOG.md",
-		"postversion": "yarn run release:push-tags && yarn run release:github-release && npm run release:update-develop",
-		"release:push-tags": "git push --follow-tags",
+		"version": "yarn run build && yarn run update-changelog",
+		"update-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add -f dist CHANGELOG.md",
+		"mark-skip-ci": "./scripts/mark-commit-skip-ci.sh",
+		"postversion": "yarn run mark-skip-ci && yarn release",
+		"release": "yarn run release:push-tags && yarn run release:github-release && npm run release:update-develop",
+		"release:push-tags": "git push && git push --tags",
 		"release:github-release": "conventional-github-releaser -p angular",
-		"release:update-develop": "git checkout develop && git merge master && git push && git checkout master",
-		"commitmsg": "validate-commit-msg"
+		"release:update-develop": "git checkout develop && git merge master && git push origin develop:develop",
+		"commitmsg": "validate-commit-msg",
+		"test": "echo 0"
 	},
 	"devDependencies": {
 		"axios": "^0.16.1",
