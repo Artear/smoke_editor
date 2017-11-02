@@ -5,6 +5,10 @@ Smoke keeps track of changes in the draft-editor state and exports it to a form 
 
 It uses Megadraft as core editor. Support for other draftjs based editors will be in the roadmap.
 
+### Circle CI build status
+
+[![CircleCI](https://circleci.com/gh/Artear/smoke_editor/tree/master.svg?style=svg)](https://circleci.com/gh/Artear/smoke_editor/tree/master)
+
 ### Usage
 
 ```html
