@@ -45,11 +45,7 @@ This project follows the [conventional changelog](https://github.com/conventiona
 
 ### Generating a new version
 
-* Run `yarn version --new-version [type]`, where type can be `major|minor|patch|prerelease` according to the 
-nature of the change
-* The version tag will be bumped by yarn, and after that a new tag commit will be generated and pushed,
-including the `dist` folder
-
+* Versions are generated via Circle CI when merging to `master` (see `.cirlcleci/config.yml`).
 
 ## Notes and resources
 
