@@ -1,3 +1,3 @@
 export default {
-    url: "//tn.com.ar/personajes/",
+    url: "https://tn.com.ar/personajes/"
 };
