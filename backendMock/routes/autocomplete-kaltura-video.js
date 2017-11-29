@@ -4,17 +4,20 @@ module.exports = function(router) {
 			{
 				"nid": "468534",
 				"title": "Buffon, el h\u00e9roe: le dio a Italia el tercer puesto - video 1",
-				"kalturaid": "0_uuhav215"
+				"kalturaid": "0_uuhav215",
+				"genoaid": "424383"
 			},
 			{
-				"nid": "743450",
-				"title": "\u00a1Ay, Buffon! El arquero le pifi\u00f3 a la pelota y Espa\u00f1a aprovech\u00f3 para hacer el gol",
-				"kalturaid": "0_d6vuxia3"
+				"nid": "590150",
+				"title": "Macri, en ShowMatch",
+				"kalturaid": "0_e7p3mxn6",
+				"genoaid": "318488"
 			},
 			{
 				"nid": "709268",
 				"title": "Que viva el fair play: Buffon aplaudi\u00f3 el himno de Francia cuando sus compatriotas lo silbaban",
-				"kalturaid": "0_1nayt7uz"
+				"kalturaid": "0_1nayt7uz",
+				"genoaid": "217816"
 			}
 		]);
 	})
