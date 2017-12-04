@@ -5,14 +5,18 @@ import ReactResumableJs from 'react-resumable-js'
 import axios from 'axios';
 import config from "./config";
 
+const INITIAL_MESSAGE = {
+	status: 'info',
+	text: 'Seleccioná una o varias imágenes (máximo 15)'
+};
 
 export default class View extends React.Component {
-		initialMessage = {status: 'info', text: 'Seleccioná una o varias imágenes (máximo 15)'};
+
     constructor(props) {
         super(props);
         this.state = {
             isShowingModal: this.props.isShowingModal,
-            message: this.initialMessage,
+            message: INITIAL_MESSAGE,
             resumableHeaders: {},
 						error: false,
 						images: {}
@@ -31,43 +35,67 @@ export default class View extends React.Component {
 
     addImage = (image) => {
 			this.setState(prevState => {
-				const images = prevState.images;
-				images[image.file.name] = image;
-				return { images: images}
+				return {
+					images: {
+						...prevState.images,
+						[image.file.name]: image
+					}
+				};
 			});
 		};
 
     removeImage = (image) =>{
 			this.setState(prevState => {
-				let images = prevState.images;
-				delete images[image.file.name];
-				if(!Object.values(images).length){
-						return {
-							message: this.initialMessage,
-							images: {}
-						}
+				let newState = {};
+
+				newState.images = Object
+					.keys(prevState.images)
+					.filter(fileName => fileName !== image.file.name)
+					.reduce((all, filename) => {
+						all[filename] = prevState.images[filename];
+						return all;
+					}, {});
+
+				if (!Object.keys(newState.images).length) {
+					newState.message = INITIAL_MESSAGE;
 				}
-				return { images: images}
+
+				return newState;
 			});
 		};
 
     addData = (dataObj) => {
-        const data = {filename: dataObj.data, type: dataObj.type, dataType: dataObj.type, src:config.tmpDir + dataObj.data};
+        const data = {
+        	filename: dataObj.data,
+					type: dataObj.type,
+					dataType: dataObj.type,
+					src:config.tmpDir + dataObj.data
+        };
+
 				setImmediate(() => {
 						this.props.onChange(insertDataBlock(this.props.editorState, data));
 				});
     };
 
     saveData = (e) => {
-        Object.values(this.state.images).map((image) => {
-					this.addData({data: image.fileName, type: 'image'});
+    		const images = this.state.images;
+
+        Object
+					.key(images)
+					.map(key => {
+							const image = images[key];
+							this.addData({
+								type: 'image',
+								data: image.fileName
+							});
 				});
+
 			  this.handleClose(e);
     };
 
     handleClose = (e) => {
         this.setState({isShowingModal: false});
-        this.setState({message: this.initialMessage});
+        this.setState({message: INITIAL_MESSAGE});
         this.props.closeModal(e);
     };
 
@@ -86,8 +114,8 @@ export default class View extends React.Component {
             });
     };
 
-    render(){
-
+    render() {
+				const disableSubmit = this.state.error || !Object.keys(this.state.images).length;
 
         return <div className="modal-wrapper">
             {
@@ -137,7 +165,10 @@ export default class View extends React.Component {
                         />
 
                         <div className="form-actions">
-                            <button className="btn btn-primary form-submit" disabled={this.state.error || !Object.values(this.state.images).length} onClick={this.saveData}>Aceptar</button>
+                            <button
+															className="btn btn-primary form-submit"
+															disabled={disableSubmit}
+															onClick={this.saveData}>Aceptar</button>
                         </div>
                     </ModalDialog>
                 </ModalContainer>
