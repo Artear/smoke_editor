@@ -81,7 +81,7 @@ export default class View extends React.Component {
     		const images = this.state.images;
 
         Object
-					.key(images)
+					.keys(images)
 					.map(key => {
 							const image = images[key];
 							this.addData({
