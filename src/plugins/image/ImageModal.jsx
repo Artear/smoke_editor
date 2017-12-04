@@ -7,14 +7,15 @@ import config from "./config";
 
 
 export default class View extends React.Component {
+		initialMessage = {status: 'info', text: 'Seleccioná una o varias imágenes (máximo 15)'};
     constructor(props) {
         super(props);
         this.state = {
             isShowingModal: this.props.isShowingModal,
-            message: {status: 'info', text: 'Seleccioná una imágen'},
-            file: {},
+            message: this.initialMessage,
             resumableHeaders: {},
-						isImageValid: false
+						error: false,
+						images: {}
         };
     }
 
@@ -22,30 +23,51 @@ export default class View extends React.Component {
         this.setState({
             isShowingModal: nextProps.isShowingModal
         });
-
     }
 
     componentDidMount(){
         this.getResumableHeaders();
     }
 
+    addImage = (image) => {
+			this.setState(prevState => {
+				const images = prevState.images;
+				images[image.file.name] = image;
+				return { images: images}
+			});
+		};
+
+    removeImage = (image) =>{
+			this.setState(prevState => {
+				let images = prevState.images;
+				delete images[image.file.name];
+				if(!Object.values(images).length){
+						return {
+							message: this.initialMessage,
+							images: {}
+						}
+				}
+				return { images: images}
+			});
+		};
+
     addData = (dataObj) => {
-        const data = {filename: dataObj.data, type: dataObj.type, dataType: dataObj.type, src:config.tmpDir +dataObj.data};
-        this.props.onChange(insertDataBlock(this.props.editorState, data));
+        const data = {filename: dataObj.data, type: dataObj.type, dataType: dataObj.type, src:config.tmpDir + dataObj.data};
+				setImmediate(() => {
+						this.props.onChange(insertDataBlock(this.props.editorState, data));
+				});
     };
 
     saveData = (e) => {
-        const file = this.state.file;
-        let data = {data:file.fileName , type: 'image'};
-        if (this.state.message.status == 'success') {
-            this.addData(data);
-            this.handleClose(e);
-        }
+        Object.values(this.state.images).map((image) => {
+					this.addData({data: image.fileName, type: 'image'});
+				});
+			  this.handleClose(e);
     };
 
     handleClose = (e) => {
         this.setState({isShowingModal: false});
-        this.setState({message: {status: 'info', text: 'Seleccioná una imágen'}});
+        this.setState({message: this.initialMessage});
         this.props.closeModal(e);
     };
 
@@ -62,9 +84,9 @@ export default class View extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    };
 
-    render() {
+    render(){
 
 
         return <div className="modal-wrapper">
@@ -88,26 +110,13 @@ export default class View extends React.Component {
                             service={config.resumableService}
                             disableDragAndDrop={true}
                             onFileSuccess={(file, message) => {
-                                this.setState({
-																	message: {
-																		status: 'success',
-																		text: 'Imagen seleccionada: <b>' + file.file.name + '</b>'
-																	},
-																	file: file,
-																	isImageValid: true
-                                });
+                                this.addImage(file);
                             }}
                             onFileAdded={(file, resumable) => {
                                 resumable.upload();
                             }}
                             onFileRemoved={(file) => {
-                                this.setState({
-																	message: {
-																		status: 'info',
-																		text: 'Seleccioná una imágen'
-																	},
-																	isImageValid: false
-                                });
+																this.removeImage(file);
                             }}
                             onMaxFileSizeErrorCallback={(file, errorCount) => {
                                 console.log('Error! Max file size reached: ', file);
@@ -119,16 +128,16 @@ export default class View extends React.Component {
 																	status: 'danger',
 																	text: error
 																},
-																isImageValid: false
+																error: true
 															});
 														}}
                             fileNameServer="file"
                             tmpDir={config.tmpDir}
-                            maxFiles={1}
+                            maxFiles={15}
                         />
 
                         <div className="form-actions">
-                            <button className="btn btn-primary form-submit" disabled={!this.state.isImageValid} onClick={this.saveData}>Aceptar</button>
+                            <button className="btn btn-primary form-submit" disabled={this.state.error || !Object.values(this.state.images).length} onClick={this.saveData}>Aceptar</button>
                         </div>
                     </ModalDialog>
                 </ModalContainer>
