@@ -1,3 +1,13 @@
+<a name="0.6.6"></a>
+## [0.6.6](https://github.com/Artear/smoke_editor/compare/v0.6.5...v0.6.6) (2017-12-04)
+
+
+### Bug Fixes
+
+* do not update develop on release ([f8ade1a](https://github.com/Artear/smoke_editor/commit/f8ade1a))
+
+
+
 <a name="0.6.5"></a>
 ## [0.6.5](https://github.com/Artear/smoke_editor/compare/v0.6.4...v0.6.5) (2017-12-04)
 
