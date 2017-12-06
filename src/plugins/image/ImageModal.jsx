@@ -1,6 +1,5 @@
 import React from 'react';
 import {insertDataBlock} from "megadraft";
-import {ModalDialog, ModalContainer} from 'react-modal-dialog';
 import ReactResumableJs from 'react-resumable-js'
 import axios from 'axios';
 import config from "./config";
