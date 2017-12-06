@@ -85,8 +85,8 @@ export default class VideoBlock extends Component{
 		const editorState       = this.props.blockProps.editorState;
 		const contentState      = editorState.getCurrentContent();
 		const newData           = {
-			type: "genoa",
-			dataType: "genoa",
+			type: "kaltura",
+			dataType: "kaltura",
 			data: {
 				title: suggestion.title,
 				nid: suggestion.nid,
