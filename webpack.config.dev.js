@@ -52,7 +52,12 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				loader: 'babel-loader',
-				exclude: /node_modules/
+				exclude: /node_modules/,
+				options: {
+					plugins: [
+						require('react-hot-loader/babel')
+					]
+				}
 			},
 			{
 				test: /\.s?css$/,
