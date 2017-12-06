@@ -19,7 +19,6 @@ export default class ImageButton extends Component {
     };
 
     closeModal = (e) => {
-        e.preventDefault();
         this.setState({
             showModal: false
         });
