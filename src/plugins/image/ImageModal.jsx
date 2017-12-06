@@ -88,8 +88,11 @@ export default class View extends React.Component {
     };
 
     handleClose = (e) => {
-        this.setState({isShowingModal: false});
-        this.setState({message: INITIAL_MESSAGE});
+        this.setState({
+					isShowingModal: false,
+					message: INITIAL_MESSAGE,
+					images: {}
+        });
         this.props.closeModal(e);
     };
 
