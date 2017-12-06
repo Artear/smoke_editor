@@ -160,7 +160,6 @@ export default class View extends React.Component {
 												onClick={this.saveData}>Aceptar</button>
 									</div>
 						</Modal>
-
         </div>;
     }
 }
