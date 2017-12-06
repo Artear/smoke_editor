@@ -1,3 +1,13 @@
+<a name="0.8.2"></a>
+## [0.8.2](https://github.com/Artear/smoke_editor/compare/v0.8.1...v0.8.2) (2017-12-06)
+
+
+### Bug Fixes
+
+* image component style (#23) ([3721c6b](https://github.com/Artear/smoke_editor/commit/3721c6b))
+
+
+
 <a name="0.8.1"></a>
 ## [0.8.1](https://github.com/Artear/smoke_editor/compare/v0.8.0...v0.8.1) (2017-12-06)
 
