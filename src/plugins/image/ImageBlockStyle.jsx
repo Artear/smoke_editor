@@ -16,6 +16,9 @@ export default {
 			padding: "20px 60px",
 			minWidth: "60%",
 			textAlign: "center"
+		},
+		overlay:{
+			padding: "80px 0"
 		}
 	}
 };
