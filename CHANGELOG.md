@@ -1,3 +1,13 @@
+<a name="0.8.3"></a>
+## [0.8.3](https://github.com/Artear/smoke_editor/compare/v0.8.2...v0.8.3) (2017-12-06)
+
+
+### Bug Fixes
+
+* move react-hot-loader plugin to dev only ([d79e3bb](https://github.com/Artear/smoke_editor/commit/d79e3bb))
+
+
+
 <a name="0.8.2"></a>
 ## [0.8.2](https://github.com/Artear/smoke_editor/compare/v0.8.1...v0.8.2) (2017-12-06)
 
