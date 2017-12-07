@@ -92,7 +92,7 @@ export default class View extends React.Component {
 					isShowingModal: false,
 					message: INITIAL_MESSAGE,
 					images: {},
-					error: {}
+					error: false
         });
         this.props.closeModal(e);
     };
@@ -113,7 +113,7 @@ export default class View extends React.Component {
     };
 
     render() {
-				const disableSubmit = this.state.error || !Object.keys(this.state.images).length;
+				const disableSubmit = !Object.keys(this.state.images).length;
 
         return <div className="modal-wrapper">
 						<Modal open={this.props.isShowingModal} onClose={this.handleClose} styles={ImageBlockStyle.modal}>
