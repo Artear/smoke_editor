@@ -1,0 +1,35 @@
+.resumable-list
+	.thumbnail {
+		border: none;
+		display: inline-block;
+		text-align: left;
+		margin: 20px;
+
+		img{
+			width: 130px;
+		}
+
+		a {
+			background: url(../icons/trash-icon.svg) 10px no-repeat;
+			font-size: .9em;
+			margin-right: 5px;
+			display: block;
+			color: transparent;
+			text-align: center;
+			&:after{
+				content: "Quitar";
+				font-size: .8125em;
+				color: rgba(0,0,0,.38);
+				margin-left: 4px;
+			}
+		}
+
+	ul{
+		text-align: center;
+		display: inline-block;
+	}
+
+}
+
+
+

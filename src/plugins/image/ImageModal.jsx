@@ -1,9 +1,10 @@
 import React from 'react';
 import {insertDataBlock} from "megadraft";
-import {ModalDialog, ModalContainer} from 'react-modal-dialog';
 import ReactResumableJs from 'react-resumable-js'
 import axios from 'axios';
 import config from "./config";
+import Modal from "react-responsive-modal";
+import ImageBlockStyle from "./ImageBlockStyle";
 
 const INITIAL_MESSAGE = {
 	status: 'info',
@@ -15,18 +16,11 @@ export default class View extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShowingModal: this.props.isShowingModal,
             message: INITIAL_MESSAGE,
             resumableHeaders: {},
 						error: false,
 						images: {}
         };
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            isShowingModal: nextProps.isShowingModal
-        });
     }
 
     componentDidMount(){
@@ -94,8 +88,11 @@ export default class View extends React.Component {
     };
 
     handleClose = (e) => {
-        this.setState({isShowingModal: false});
-        this.setState({message: INITIAL_MESSAGE});
+        this.setState({
+					isShowingModal: false,
+					message: INITIAL_MESSAGE,
+					images: {}
+        });
         this.props.closeModal(e);
     };
 
@@ -118,61 +115,53 @@ export default class View extends React.Component {
 				const disableSubmit = this.state.error || !Object.keys(this.state.images).length;
 
         return <div className="modal-wrapper">
-            {
-                this.state.isShowingModal &&
-                <ModalContainer onClose={this.handleClose}>
-                    <ModalDialog className="modal-dialog" onClose={this.handleClose}>
-                        <div className={'alert alert-' + this.state.message.status} role="alert"
-                             dangerouslySetInnerHTML={{__html: this.state.message.text}}>
-                        </div>
+						<Modal open={this.props.isShowingModal} onClose={this.handleClose} styles={ImageBlockStyle.modal}>
+									<h3>{this.state.message.text}</h3>
+									<ReactResumableJs
+											headerObject={this.state.resumableHeaders}
+											uploaderID="image-upload"
+											dropTargetID="myDropTarget"
+											filetypes={["jpg", "JPG", "png", "PNG"]}
+											maxFileSize={512000000}
+											fileAccept="*/*"
+											fileAddedMessage="Started!"
+											completedMessage="Complete!"
+											service={config.resumableService}
+											disableDragAndDrop={true}
+											onFileSuccess={(file, message) => {
+													this.addImage(file);
+											}}
+											onFileAdded={(file, resumable) => {
+													resumable.upload();
+											}}
+											onFileRemoved={(file) => {
+													this.removeImage(file);
+											}}
+											onMaxFileSizeErrorCallback={(file, errorCount) => {
+													console.log('Error! Max file size reached: ', file);
+													console.log('errorCount: ', errorCount);
+											}}
+											onUploadErrorCallback={(file, error) => {
+												this.setState({
+													message: {
+														status: 'danger',
+														text: error
+													},
+													error: true
+												});
+											}}
+											fileNameServer="file"
+											tmpDir={config.tmpDir}
+											maxFiles={15}
+									/>
 
-                        <ReactResumableJs
-                            headerObject={this.state.resumableHeaders}
-                            uploaderID="image-upload"
-                            dropTargetID="myDropTarget"
-                            filetypes={["jpg", "JPG", "png", "PNG"]}
-                            maxFileSize={512000000}
-                            fileAccept="*/*"
-                            fileAddedMessage="Started!"
-                            completedMessage="Complete!"
-                            service={config.resumableService}
-                            disableDragAndDrop={true}
-                            onFileSuccess={(file, message) => {
-                                this.addImage(file);
-                            }}
-                            onFileAdded={(file, resumable) => {
-                                resumable.upload();
-                            }}
-                            onFileRemoved={(file) => {
-																this.removeImage(file);
-                            }}
-                            onMaxFileSizeErrorCallback={(file, errorCount) => {
-                                console.log('Error! Max file size reached: ', file);
-                                console.log('errorCount: ', errorCount);
-                            }}
-														onUploadErrorCallback={(file, error) => {
-															this.setState({
-																message: {
-																	status: 'danger',
-																	text: error
-																},
-																error: true
-															});
-														}}
-                            fileNameServer="file"
-                            tmpDir={config.tmpDir}
-                            maxFiles={15}
-                        />
-
-                        <div className="form-actions">
-                            <button
-															className="btn btn-primary form-submit"
-															disabled={disableSubmit}
-															onClick={this.saveData}>Aceptar</button>
-                        </div>
-                    </ModalDialog>
-                </ModalContainer>
-            }
+									<div className="form-actions">
+											<button
+												className="btn  btn-primary form-submit btn-block"
+												disabled={disableSubmit}
+												onClick={this.saveData}>Aceptar</button>
+									</div>
+						</Modal>
         </div>;
     }
 }
