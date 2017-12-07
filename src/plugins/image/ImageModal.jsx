@@ -19,7 +19,7 @@ export default class View extends React.Component {
             message: INITIAL_MESSAGE,
             resumableHeaders: {},
 						error: false,
-						images: {}
+						images: {},
         };
     }
 
@@ -116,7 +116,11 @@ export default class View extends React.Component {
 				const disableSubmit = !Object.keys(this.state.images).length;
 
         return <div className="modal-wrapper">
-						<Modal open={this.props.isShowingModal} onClose={this.handleClose} styles={ImageBlockStyle.modal}>
+						<Modal open={this.props.isShowingModal}
+									 onClose={this.handleClose}
+									 styles={ImageBlockStyle.modal}
+									 closeOnOverlayClick={false}
+						>
 									<h3>{this.state.message.text}</h3>
 									<ReactResumableJs
 											headerObject={this.state.resumableHeaders}
