@@ -23,6 +23,10 @@
 				margin-left: 4px;
 			}
 		}
+		label{
+			max-height: 80px;
+			overflow: hidden;
+		}
 
 	ul{
 		text-align: center;
@@ -31,5 +35,6 @@
 
 }
 
-
-
+.btn .file-upload{
+	margin: auto;
+}
