@@ -91,7 +91,8 @@ export default class View extends React.Component {
         this.setState({
 					isShowingModal: false,
 					message: INITIAL_MESSAGE,
-					images: {}
+					images: {},
+					error: {}
         });
         this.props.closeModal(e);
     };
@@ -142,6 +143,7 @@ export default class View extends React.Component {
 													console.log('errorCount: ', errorCount);
 											}}
 											onUploadErrorCallback={(file, error) => {
+												this.removeImage(file);
 												this.setState({
 													message: {
 														status: 'danger',
