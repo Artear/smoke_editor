@@ -143,7 +143,6 @@ export default class View extends React.Component {
 													console.log('errorCount: ', errorCount);
 											}}
 											onUploadErrorCallback={(file, error) => {
-												this.removeImage(file);
 												this.setState({
 													message: {
 														status: 'danger',
