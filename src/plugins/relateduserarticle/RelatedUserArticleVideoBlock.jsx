@@ -16,7 +16,7 @@ export default function RelatedUserArticleVideoBlock(props) {
 
     return (
         <MegadraftPlugin.CommonBlock {...props} actions={actions}>
-            <div className="smoke-block smoke-kaltura" />
+            <div className="smoke-block smoke-video" />
         </MegadraftPlugin.CommonBlock>
     );
 }

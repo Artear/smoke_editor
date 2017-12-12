@@ -5,7 +5,7 @@ import Autosuggest          from 'react-autosuggest';
 import Immutable            from "immutable";
 import axios                from 'axios';
 import config               from "./config";
-import icons                from "../../../icons/icons";
+import icons                from "../../icons/icons";
 
 const {Map} = Immutable;
 const {Modifier, EditorState, SelectionState} = DraftJS;
@@ -85,8 +85,8 @@ export default class VideoBlock extends Component{
 		const editorState       = this.props.blockProps.editorState;
 		const contentState      = editorState.getCurrentContent();
 		const newData           = {
-			type: "kaltura",
-			dataType: "kaltura",
+			type: "video",
+			dataType: "video",
 			data: {
 				title: suggestion.title,
 				nid: suggestion.nid,
@@ -138,7 +138,7 @@ export default class VideoBlock extends Component{
 							/>
 						</div>
 
-						<div style={{display:(this.state.isEditing) ? 'none' : 'block'}} className={"smoke-block smoke-" + this.props.data.dataType} />
+						<div style={{display:(this.state.isEditing) ? 'none' : 'block'}} className={"smoke-block smoke-video"} />
 					</MegadraftPlugin.CommonBlock>
 				</div>
 

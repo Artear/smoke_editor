@@ -250,7 +250,7 @@
 		},
 		{
 			"key":"903tla",
-			"text":"Genoa plugin:",
+			"text":"Video plugin:",
 			"type":"unstyled",
 			"depth":0,
 			"inlineStyleRanges":[
@@ -279,8 +279,8 @@
 
 			],
 			"data":{
-				"type":"kaltura",
-				"dataType":"kaltura",
+				"type":"video",
+				"dataType":"video",
 				"data":{
 					"title":"Buffon, el héroe: le dio a Italia el tercer puesto - video 1",
 					"nid":"468534",

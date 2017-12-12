@@ -8,7 +8,7 @@ import {MegadraftIcons}       from 'megadraft';
 import CodeIcon               from "./code";
 import RelatedContentIcon     from "./relatedcontent";
 import RelatedTagIcon         from "./relatedtag";
-import KalturaIcon            from "./kaltura";
+import VideoIcon              from "./video";
 import PeopleIcon             from "./people";
 import TagIcon                from "./tag";
 import RelatedUserArticleIcon from "./relateduserarticle";
@@ -17,7 +17,7 @@ const icons = {
   CodeIcon,
   RelatedContentIcon,
   RelatedTagIcon,
-  KalturaIcon,
+  VideoIcon,
   PeopleIcon,
   TagIcon,
   RelatedUserArticleIcon

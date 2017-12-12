@@ -6,7 +6,7 @@ import DomUtils from './Helpers/DomUtils';
 import './sass/index.dev.scss';
 
 const config = {
-	plugins: ['EMBED', 'RELATEDCONTENT', 'IMAGE', 'RELATEDTAG', 'KALTURA', 'GENOA', 'RELATEDUSERARTICLE'],
+	plugins: ['EMBED', 'RELATEDCONTENT', 'IMAGE', 'RELATEDTAG', 'KALTURA', 'VIDEO', 'RELATEDUSERARTICLE'],
 	actions: ['BOLD', 'ITALIC', 'LINK', 'SUBTITLE', 'BLOCKQUOTE', 'PEOPLE', 'TAG'],
 	debug: true
 };

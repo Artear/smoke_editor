@@ -49,6 +49,6 @@ PluginManager.set('plugin', 'EMBED',                plugins.embed);
 PluginManager.set('plugin', 'RELATEDCONTENT',       plugins.relatedcontent);
 PluginManager.set('plugin', 'RELATEDTAG',           plugins.relatedtag);
 PluginManager.set('plugin', 'KALTURA',              plugins.kaltura);
-PluginManager.set('plugin', 'GENOA',              plugins.genoa);
+PluginManager.set('plugin', 'VIDEO',              	plugins.video);
 PluginManager.set('plugin', 'IMAGE',                plugins.image);
 PluginManager.set('plugin', 'RELATEDUSERARTICLE',   plugins.relateduserarticle);
