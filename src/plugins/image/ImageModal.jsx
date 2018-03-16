@@ -6,9 +6,11 @@ import config from "./config";
 import Modal from "react-responsive-modal";
 import ImageBlockStyle from "./ImageBlockStyle";
 
+const MAX_FILES = 15;
+const MESSAGE_ERROR = 'Algunas imágenes pueden no haber subido por el error.';
 const INITIAL_MESSAGE = {
 	status: 'info',
-	text: 'Seleccioná una o varias imágenes (máximo 15)'
+	text: 'Seleccioná una o varias imágenes (máximo ' + MAX_FILES + ')'
 };
 
 export default class View extends React.Component {
@@ -18,8 +20,8 @@ export default class View extends React.Component {
         this.state = {
             message: INITIAL_MESSAGE,
             resumableHeaders: {},
-						error: false,
-						images: {},
+			errors: [],
+			images: {}
         };
     }
 
@@ -37,6 +39,14 @@ export default class View extends React.Component {
 				};
 			});
 		};
+
+    addError = (message) => {
+    	this.setState(prevState => {
+    		return {
+					errors: [...prevState.errors, message]
+					}
+    	});
+    };
 
     removeImage = (image) =>{
 			this.setState(prevState => {
@@ -92,7 +102,7 @@ export default class View extends React.Component {
 					isShowingModal: false,
 					message: INITIAL_MESSAGE,
 					images: {},
-					error: false
+					errors: []
         });
         this.props.closeModal(e);
     };
@@ -113,51 +123,44 @@ export default class View extends React.Component {
     };
 
     render() {
-				const disableSubmit = !Object.keys(this.state.images).length;
+			const disableSubmit = !Object.keys(this.state.images).length;
 
-        return <div className="modal-wrapper">
+			let message = this.state.message.text;
+			let warning_message = '';
+
+			if (this.state.errors.length > 0) {
+					message = this.state.errors.join('\n');
+					warning_message = MESSAGE_ERROR;
+				}
+
+			return <div className="modal-wrapper">
 						<Modal open={this.props.isShowingModal}
 									 onClose={this.handleClose}
 									 styles={ImageBlockStyle.modal}
 									 closeOnOverlayClick={false}
 						>
-									<h3>{this.state.message.text}</h3>
+									<h3>{message}</h3>
+									<p>{warning_message}</p>
 									<ReactResumableJs
 											headerObject={this.state.resumableHeaders}
 											uploaderID="image-upload"
 											dropTargetID="myDropTarget"
-											filetypes={["jpg", "JPG", "png", "PNG"]}
-											maxFileSize={512000000}
-											fileAccept="*/*"
+											filetypes={["jpg", "JPG", "png", "PNG", "jpeg", "JPEG"]}
+											maxFileSize={5242880}
+											fileAccept="image/jpeg, image/png"
 											fileAddedMessage="Started!"
 											completedMessage="Complete!"
 											service={config.resumableService}
 											disableDragAndDrop={true}
-											onFileSuccess={(file, message) => {
-													this.addImage(file);
-											}}
-											onFileAdded={(file, resumable) => {
-													resumable.upload();
-											}}
-											onFileRemoved={(file) => {
-													this.removeImage(file);
-											}}
-											onMaxFileSizeErrorCallback={(file, errorCount) => {
-													console.log('Error! Max file size reached: ', file);
-													console.log('errorCount: ', errorCount);
-											}}
-											onUploadErrorCallback={(file, error) => {
-												this.setState({
-													message: {
-														status: 'danger',
-														text: error
-													},
-													error: true
-												});
-											}}
 											fileNameServer="file"
 											tmpDir={config.tmpDir}
-											maxFiles={15}
+											maxFiles={MAX_FILES}
+											onFileSuccess={(file, message) => {this.addImage(file);}}
+											onFileAdded={(file, resumable) => {resumable.upload();}}
+											onFileRemoved={(file) => {this.removeImage(file);}}
+											onMaxFileSizeErrorCallback={(file) => {this.addError(file.name + " tamaño superior a 5 megas.")}}
+											onUploadErrorCallback={(file, error) => {this.addError(JSON.parse(error).error)}}
+											onFileAddedError={(file) => {this.addError(file.name + " archivo no valido.")}}
 									/>
 
 									<div className="form-actions">
