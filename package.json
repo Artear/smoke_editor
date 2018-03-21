@@ -1,6 +1,6 @@
 {
 	"name": "smoke-editor",
-	"version": "0.9.0",
+	"version": "0.12.0",
 	"main": "dist/index.js",
 	"repository": "git@github.com:Artear/smoke_editor.git",
 	"author": "Artear",
@@ -47,7 +47,7 @@
 		"husky": "^0.14.3",
 		"megadraft": "^0.4.24",
 		"morgan": "~1.8.1",
-		"node-sass": "^4.5.2",
+		"node-sass": "^4.7.2",
 		"path": "^0.12.7",
 		"progress-bar-webpack-plugin": "^1.9.3",
 		"prop-types": "^15.5.10",

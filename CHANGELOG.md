@@ -1,3 +1,8 @@
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/Artear/smoke_editor/compare/v0.8.7...v0.12.0) (2018-03-21)
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/Artear/smoke_editor/compare/v0.8.9...v0.9.0) (2018-03-19)
 
