@@ -249,6 +249,47 @@
 			}
 		},
 		{
+			"key":"903tla",
+			"text":"Video plugin:",
+			"type":"unstyled",
+			"depth":0,
+			"inlineStyleRanges":[
+				{
+					"offset":0,
+					"length":15,
+					"style":"BOLD"
+				}
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+
+			}
+		},
+		{
+			"key":"452av",
+			"text":"",
+			"type":"atomic",
+			"depth":0,
+			"inlineStyleRanges":[
+
+			],
+			"entityRanges":[
+
+			],
+			"data":{
+				"type":"video",
+				"dataType":"video",
+				"data":{
+					"title":"Buffon, el héroe: le dio a Italia el tercer puesto - video 1",
+					"nid":"468534",
+					"kalturaid":"0_uuhav215",
+					"genoaid": "424383"
+				}
+			}
+		},
+		{
 			"key":"903tl",
 			"text":"Kaltura plugin:",
 			"type":"unstyled",
@@ -284,7 +325,8 @@
 				"data":{
 					"title":"Buffon, el héroe: le dio a Italia el tercer puesto - video 1",
 					"nid":"468534",
-					"kalturaid":"0_uuhav215"
+					"kalturaid":"0_uuhav215",
+					"genoaid": "424383"
 				}
 			}
 		},
@@ -481,5 +523,6 @@
 
 			}
 		}
+
 	]
 }

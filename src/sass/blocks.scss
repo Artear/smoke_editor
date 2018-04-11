@@ -68,8 +68,8 @@
   background-size: contain;
 }
 
-.smoke-kaltura{
-  background-image: url("../placeholders/kaltura.svg");
+.smoke-video{
+  background-image: url("../placeholders/video.svg");
 }
 
 .smoke-infogram{
@@ -133,7 +133,7 @@
 }
 
 .related-content-block,
-.kaltura-block {
+.video-block {
   line-height: 2em;
 
   .links-related > span{
@@ -201,7 +201,7 @@
   }
 }
 
-.kaltura-block {
+.video-block {
   .react-autosuggest__container {
     margin: 0 1% 1%;
     padding: 0;
