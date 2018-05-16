@@ -1,3 +1,21 @@
+<a name="0.8.9"></a>
+## [0.8.9](https://github.com/Artear/smoke_editor/compare/v0.12.0...v0.8.9) (2018-05-16)
+
+
+### Bug Fixes
+
+* conflict merge ([76875f7](https://github.com/Artear/smoke_editor/commit/76875f7))
+* conflict revert ([6da43cd](https://github.com/Artear/smoke_editor/commit/6da43cd))
+* conflict revert ([8c62cde](https://github.com/Artear/smoke_editor/commit/8c62cde))
+* revert to ced63287b33f54ba0c7714b77efdf4e35cc546ae ([e9d74fe](https://github.com/Artear/smoke_editor/commit/e9d74fe))
+
+
+### Features
+
+* tnre 4676 genoa (#32) ([e8005f7](https://github.com/Artear/smoke_editor/commit/e8005f7))
+
+
+
 <a name="0.8.8"></a>
 ## [0.8.8](https://github.com/Artear/smoke_editor/compare/v0.8.7...v0.8.8) (2017-12-07)
 
