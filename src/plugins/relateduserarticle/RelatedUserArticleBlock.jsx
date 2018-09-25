@@ -38,9 +38,10 @@ export default class RelatedUserArticleBlock extends Component {
 						};
 					} else {
 						media = {
-							type: 'kaltura',
+							type: 'genoa',
 							data: {
-								kaltura_id: article.kaltura_id
+								genoa_id: article.genoa_id,
+								genoa_player_id: article.genoa_player_id,
 							}
 						};
 					}
