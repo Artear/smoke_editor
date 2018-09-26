@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Modifier, EditorState, convertToRaw, RichUtils, SelectionState } from 'draft-js';
 import ImageBlock from '../image/ImageBlock';
 import RelatedUserArticleVideoBlock from './RelatedUserArticleVideoBlock';
+import config from './config';
 
 /**
  * Related UserArticle block for the editor.
@@ -40,8 +41,7 @@ export default class RelatedUserArticleBlock extends Component {
 						media = {
 							type: 'genoa',
 							data: {
-								genoa_id: article.genoa_id,
-								genoa_player_id: article.genoa_player_id,
+								genoaid: article.genoa_id,
 							}
 						};
 					}
