@@ -26,9 +26,9 @@ export default class UserArticleVideoSelector extends Component {
 					{
 							this.props.videos.map(video => {
 									return (
-											<div className="plugin-relateduserarticle-modal__videos-selector-entry" key={video.kaltura_id}>
-													<span className="plugin-relateduserarticle-modal__videos-selector-entry-id">{video.kaltura_id}</span>
-													<video preload="metadata" controls src={video.kaltura_url} />
+											<div className="plugin-relateduserarticle-modal__videos-selector-entry" key={video.genoa_id}>
+													<span className="plugin-relateduserarticle-modal__videos-selector-entry-id">{video.genoa_id}</span>
+													<iframe src={video.genoa_url +'player/v2/embed/playerId/'+ video.genoa_player_id +'/contentId/'+video.genoa_id} />
 													<button className="btn btn-default btn-block" onClick={() => this.select(video)}>
 															<i className="glyphicon glyphicon glyphicon-facetime-video"></i> Seleccionar
 													</button>
