@@ -22,5 +22,6 @@ export default  {
     RICOHTHETA: {domObj:"BLOCKQUOTE",compare:{attr:"class",value:"ricoh-theta-spherical-image"}, blockName:"ricohtheta"},
     GIPKY: { domObj: "IFRAME", compare: { attr: "src", value: "giphy.com/embed/" }, blockName: "giphy" },
     PREZI: { domObj: "IFRAME", compare: { attr: "src", value: "prezi.com/embed/" }, blockName: "prezi" },
-    PLAYBUZZ: { domObj: "DIV", compare: { attr: "class", value: "pb_feed" }, blockName: "playbuzz" }
+    PLAYBUZZ: { domObj: "DIV", compare: { attr: "class", value: "pb_feed" }, blockName: "playbuzz" },
+    TN_CALCRENTA: { domObj: "IFRAME", compare: { attr: "src", value: "serviciostn.com/calculadora" }, blockName: "tn-calculadorarenta" }
 };
