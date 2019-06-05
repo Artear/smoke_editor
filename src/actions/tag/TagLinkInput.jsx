@@ -1,12 +1,12 @@
 import React from "react";
-import {Modifier, EditorState, Entity} from 'draft-js';
 import config from "./config";
+import { cleanString } from '../../Helpers/pathutils';
 
 export default class TagLinkInput extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount = () => {
     this.toggle();
   }
@@ -33,8 +33,8 @@ export default class TagLinkInput extends React.Component {
 
     const selection = editorState.getSelection();
     const contentBlock = editorState.getCurrentContent().getBlockForKey(selection.getStartKey());
-    const tag = contentBlock.getText().slice(selection.getStartOffset(), selection.getEndOffset()).trim().replace(/\s+/g, '-').toLowerCase();
-    this.props.setEntity({"type": "tag", url: config.url + tag}, "INMUTABLE");
+    const tagText = contentBlock.getText().slice(selection.getStartOffset(), selection.getEndOffset());
+    this.props.setEntity({"type": "tag", url: config.url + cleanString(tagText)}, "INMUTABLE");
     this.props.cancelEntity();
   }
 
