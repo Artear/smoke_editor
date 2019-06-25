@@ -1,6 +1,6 @@
 {
 	"name": "smoke-editor",
-	"version": "0.8.10",
+	"version": "0.8.11",
 	"main": "dist/index.js",
 	"repository": "git@github.com:Artear/smoke_editor.git",
 	"author": "Artear",
