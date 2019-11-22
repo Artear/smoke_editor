@@ -46,7 +46,7 @@
 		"html-webpack-plugin": "^2.28.0",
 		"husky": "^0.14.3",
 		"megadraft": "^0.4.24",
-		"morgan": "~1.8.1",
+		"morgan": "~1.9.1",
 		"node-sass": "^4.5.2",
 		"path": "^0.12.7",
 		"progress-bar-webpack-plugin": "^1.9.3",
