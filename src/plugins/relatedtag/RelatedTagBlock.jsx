@@ -6,6 +6,8 @@ import axios from 'axios';
 import config from "./config";
 import icons from "../../icons/icons";
 import ReactDOM from 'react-dom';
+import RelatedTagUtils from '../../Helpers/RelatedTagUtils';
+import SocialEmbed from "../../Helpers/SocialEmbed";
 
 const {Modifier, EditorState, SelectionState} = DraftJS;
 const {Map} = Immutable;
@@ -18,7 +20,8 @@ export default class RelatedTagBlock extends Component {
             isEditing: (this.props.data.data.name) ? false : true,
             name: (this.props.data.data.name || ''),
             url: (this.props.data.data.url || ''),
-            data: (this.props.data.data || {tag: {name:'', url:''}}),
+						// tid and machineName added for ARC migration
+            data: (this.props.data.data || {tag: {name: '', url: '', tid: null, machineName: ''}}),
             loading: false,
             suggestions: []
         };
@@ -104,7 +107,16 @@ export default class RelatedTagBlock extends Component {
         latestArticlesPromise
             .then(function (response) {
 
-                let data = {tag: {name: suggestion.tag, url: suggestion.tagUrl}, articles: response.data};
+                let data = {
+                	tag: {
+                		name: suggestion.tag,
+										url: suggestion.tagUrl,
+										// tid and machineName added for ARC migration
+										tid: suggestion.tid,
+										machineName: RelatedTagUtils.getMachineNameFromUrl(suggestion.tagUrl)
+									},
+									articles: response.data
+                };
 
                 this.setState({
                     data: data,
